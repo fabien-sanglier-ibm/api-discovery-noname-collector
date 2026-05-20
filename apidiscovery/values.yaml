@@ -19,3 +19,5 @@ logging:
 
 images:
   api_discovery_noname_collector: ghcr.io/ibm-apiconnect/api-discovery-noname-collector:40-2025-11-05-06-41-14
+
+serviceAccountName: ""

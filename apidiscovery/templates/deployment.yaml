@@ -38,6 +38,9 @@ spec:
         runAsNonRoot: true
         supplementalGroups:
           - 1000
+      {{- if .Values.serviceAccountName }}
+      serviceAccountName: {{ .Values.serviceAccountName }}
+      {{- end }}
       containers:
         - resources:
             limits:
@@ -77,7 +80,7 @@ spec:
             runAsNonRoot: true
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: false
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           image: {{ .Values.images.api_discovery_noname_collector }}
       dnsPolicy: ClusterFirst
       volumes:
